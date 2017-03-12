@@ -27,6 +27,8 @@ router.post('/captures', (req, res) => {
   //notes
 })
 
-router.get('/captures')
+router.get('/captures', (req, res) => {
+  //get data from captures by a date/date-range
+})
 
 module.exports = router;
