@@ -7,10 +7,8 @@ router.post('/signup', (req, res) => {
   //password
   //first name
   //last name
-  //address
+  //address:  street number, street name, suburb, city
   //gps coordinates
-  //number of devices
-  //device types
 })
 
 router.get('/users/:id', (req, res) => {
@@ -30,5 +28,8 @@ router.post('/captures', (req, res) => {
 router.get('/captures', (req, res) => {
   //get data from captures by a date/date-range
 })
+
+
+//ADD DEVICE ROUTES
 
 module.exports = router;
