@@ -18,6 +18,10 @@ function getUserById (id) {
   return knex('users').where('id', `${id}`)
 }
 
+function removeUser (id) {
+  return knex('users').where('id', `${id}`).del()
+}
+
 function addDevice (device) {
   return knex('devices').insert(device)
 }
@@ -30,12 +34,23 @@ function getDeviceById (id) {
   return knex('devices').where('id', `${id}`)
 }
 
+function removeDevice (id) {
+  return knex('devices').where('id', `${id}`).del()
+}
+
+function addPredatorData (predatorData) {
+  return knex('predatorData').insert(predatorData)
+}
+
 module.exports = {
   addUser,
   getUsers,
   getUserByUsername,
   getUserById,
+  removeUser,
   addDevice,
   getDevices,
-  getDeviceById
+  getDeviceById,
+  removeDevice,
+  addPredatorData
 }
