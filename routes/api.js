@@ -1,14 +1,18 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express')
+const router = express.Router()
 
+const db = require('../db/hthDB')
 
 router.post('/signup', (req, res) => {
-  //username
-  //password
-  //first name
-  //last name
-  //address:  street number, street name, suburb, city
-  //gps coordinates
+  //add street type
+  const {username, password, firstName, lastName, streetNumber, streetName, suburb, city, email, gpsCoords} = req.body
+  var user = {username, password, firstName, lastName, streetNumber, streetName, suburb, city, email, gpsCoords}
+  db.addUser(user)
+  .then((res) => {
+    console.log(res, "result")
+    //logs user table id
+    //handle this and error when p/w hashing setup
+  })
 })
 
 router.get('/users/:id', (req, res) => {
