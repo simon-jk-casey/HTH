@@ -8,6 +8,7 @@ exports.up = function (knex, Promise) {
     table.string('lastName').notNullable()
     table.string('streetNumber').notNullable()
     table.string('streetName').notNullable()
+    //add street type (ie ave, st etc)
     table.string('suburb').notNullable()
     table.string('city').notNullable()
     table.string('email').notNullable().unique()
