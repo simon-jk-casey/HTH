@@ -1,16 +1,19 @@
 //POST SIGNUP
-
-ERROR MSG:
-
-SUCCESS:
-[1] (returns id of added user)
-
-FAIL:
-{ Error: SQLITE_CONSTRAINT: UNIQUE constraint failed: users.gpsCoords errno: 19, code: 'SQLITE_CONSTRAINT' }
+SUCCESS: [1] (returns id of added user)
+FAIL: { Error: SQLITE_CONSTRAINT: UNIQUE constraint failed: users.gpsCoords errno: 19, code: 'SQLITE_CONSTRAINT' }
 
 //POST DEVICES
+SUCCESS: returns id of added device
+FAIL: ?
 
-SUCCESS:
-returns id of added device
+//GET devices
+SUCCESS: res.json of all devices
+FAIL: ?
 
-FAIL:
+//GET DEVICES/:ID ~ SHOW DEVICE
+SUCCESS: res.json
+FAIL: []
+
+//POST DEVICES/:ID ~ DELETE DEVICE
+SUCCESS: 1
+FAIL: 0

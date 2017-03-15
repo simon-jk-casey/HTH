@@ -32,9 +32,8 @@ router.post('/users/:id', (req, res) => {
 
 router.get('/devices', (req, res) => {
   db.getDevices()
-  .then((data) => {
-    console.log(data);
-    res.json(data)
+  .then((result) => {
+    res.json(result)
     //returning object correctly, handle as necessary for front end
   })
   .catch((err) => {
@@ -57,8 +56,8 @@ router.post('/devices', (req, res) => {
 
 router.get('/devices/:id', (req, res) => {
   db.getDeviceById(req.params.id)
-  .then((data) => {
-    res.json(data)
+  .then((result) => {
+    res.json(result)
   })
   .catch((err) => {
     console.log(err)
@@ -66,7 +65,13 @@ router.get('/devices/:id', (req, res) => {
 })
 
 router.post('/devices/:id', (req, res) => {
-  //remove a device
+  db.removeDevice(req.params.id)
+  .then((result) => {
+    console.log(result)
+  })
+  .catch((err) => {
+    console.log(err)
+  })
 })
 
 router.post('/captures', (req, res) => {
