@@ -33,7 +33,8 @@ router.post('/users/:id', (req, res) => {
 router.get('/devices', (req, res) => {
   db.getDevices()
   .then((data) => {
-    res.json(data[0])
+    console.log(data);
+    res.json(data)
     //returning object correctly, handle as necessary for front end
   })
   .catch((err) => {
