@@ -42,6 +42,10 @@ function addPredatorData (predatorData) {
   return knex('predatorData').insert(predatorData)
 }
 
+function getPredatorData () {
+  return knex('predatorData')
+}
+
 module.exports = {
   addUser,
   getUsers,
@@ -52,5 +56,6 @@ module.exports = {
   getDevices,
   getDeviceById,
   removeDevice,
-  addPredatorData
+  addPredatorData,
+  getPredatorData
 }
