@@ -56,7 +56,13 @@ router.post('/devices', (req, res) => {
 })
 
 router.get('/devices/:id', (req, res) => {
-  //get specific device details by id
+  db.getDeviceById(req.params.id)
+  .then((data) => {
+    res.json(data)
+  })
+  .catch((err) => {
+    console.log(err)
+  })
 })
 
 router.post('/devices/:id', (req, res) => {
