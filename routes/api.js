@@ -37,6 +37,7 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
 
 router.get('/users/:id', ensureAuthenticated, (req, res) => {
   // display authenticated user data
+  // build off requesting user id
 })
 
 router.post('/users/:id', ensureAuthenticated, (req, res) => {
