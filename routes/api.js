@@ -21,7 +21,7 @@ router.post('/signup', (req, res) => {
   bcrypt.hash(password, saltRounds, (err, hash) => {
     if (err) throw err
     else {
-      const user = {username, password, firstName, lastName, streetNumber, streetName, suburb, city, email, gpsCoords}
+      const user = {username, password: hash, firstName, lastName, streetNumber, streetName, suburb, city, email, gpsCoords}
       db.addUser(user)
       .then(() => res.json({status: 200, message: 'signup successful'}))
       .catch((err) => {
