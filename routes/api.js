@@ -17,7 +17,7 @@ function ensureAuthenticated (req, res, next) {
 
 router.post('/signup', (req, res) => {
   // add street type
-  console.log(req.body);
+  console.log(req.body)
   const {username, password, firstName, lastName, streetNumber, streetName, suburb, city, email, gpsCoords} = req.body
   bcrypt.hash(password, saltRounds, (err, hash) => {
     if (err) throw err
