@@ -65,15 +65,15 @@ router.get('/devices', ensureAuthenticated, (req, res) => {
 })
 
 router.post('/devices', ensureAuthenticated, (req, res) => {
-  // const {userId, deviceType} = req.body
-  // const device = {userId, deviceType}
-  // userId will come from elsewhere when passport added, need to fix then (can also be non-int but since will be supplied by cookie for auth user shouldnt matter as will be auto)
-  db.addDevice(req.body)
-  .then((res) => {
-    console.log(res)
+  const {deviceName, deviceType, deviceNotes} = req.body
+  const userId = req.user.userId
+  const device = {userId, deviceName, deviceType, notes: deviceNotes}
+  db.addDevice(device)
+  .then(() => {
+    res.json({status: 200, message: 'Device Added'})
   })
   .catch((err) => {
-    console.log(err)
+    throw err
   })
 })
 
