@@ -33,15 +33,24 @@ router.post('/signup', (req, res) => {
 })
 
 router.post('/login', passport.authenticate('local'), (req, res) => {
+  console.log(req.user.userId);
   res.json({user: req.user})
 })
 
-router.get('/users/:id', ensureAuthenticated, (req, res) => {
+router.get('/user', ensureAuthenticated, (req, res) => {
   // display authenticated user data
   // build off requesting user id
+  db.getUserById(req.user.userId)
+  .then((result) => {
+    console.log(result)
+    res.send(result)
+  })
+  .catch((err) => {
+    throw err
+  })
 })
 
-router.post('/users/:id', ensureAuthenticated, (req, res) => {
+router.post('/user', ensureAuthenticated, (req, res) => {
   // edit user info
 })
 
