@@ -25,3 +25,9 @@ FAIL: ?
 //GET /captures
 SUCCESS: res.json of data captured
 FAIL: []
+
+
+TO DO:
+
+MIGRATIONS:
+add timestamp to device table
