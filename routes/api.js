@@ -98,9 +98,12 @@ router.post('/devices/:id', ensureAuthenticated, (req, res) => {
 })
 
 router.post('/captures', ensureAuthenticated, (req, res) => {
-  db.addPredatorData(req.body)
+  const { captureDevice, capturedPredator, captureNotes } = req.body
+  const { userId } = req.user
+  const data = {userId, deviceId: captureDevice, predCaptured: capturedPredator, notes: captureNotes}
+  db.addPredatorData(data)
   .then((result) => {
-    console.log(result)
+    res.json({status: 200, message: 'Data entered'})
   })
   .catch((err) => {
     console.log(err)
