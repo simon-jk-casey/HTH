@@ -49,6 +49,12 @@ function addPredatorData (predatorData) {
 function getCaptureData () {
   return knex('predatorData')
   .join('devices', 'predatorData.deviceId', 'devices.id')
+  .select('captureDate')
+  .select('predatorData.id as id')
+  .select('predCaptured')
+  .select('predatorData.notes as notes')
+  .select('deviceName')
+  .select('deviceType')
 }
 
 module.exports = {

@@ -33,7 +33,7 @@ router.post('/signup', (req, res) => {
 })
 
 router.post('/login', passport.authenticate('local'), (req, res) => {
-  console.log(req.user.userId);
+  console.log(req.user.userId)
   res.json({user: req.user})
 })
 
@@ -113,7 +113,6 @@ router.post('/captures', ensureAuthenticated, (req, res) => {
 router.get('/captures', ensureAuthenticated, (req, res) => {
   db.getCaptureData()
   .then((result) => {
-    // console.log(result)
     res.json(result)
   })
   .catch((err) => {
