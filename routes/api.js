@@ -111,12 +111,13 @@ router.post('/captures', ensureAuthenticated, (req, res) => {
 })
 
 router.get('/captures', ensureAuthenticated, (req, res) => {
-  db.getPredatorData()
+  db.getCaptureData()
   .then((result) => {
+    // console.log(result)
     res.json(result)
   })
   .catch((err) => {
-    console.log(err)
+    throw err
   })
 })
 
