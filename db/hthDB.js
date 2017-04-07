@@ -42,8 +42,13 @@ function addPredatorData (predatorData) {
   return knex('predatorData').insert(predatorData)
 }
 
-function getPredatorData () {
+// function getPredatorData () {
+//   return knex('predatorData')
+// }
+
+function getCaptureData () {
   return knex('predatorData')
+  .join('devices', 'predatorData.deviceId', 'devices.id')
 }
 
 module.exports = {
@@ -57,5 +62,6 @@ module.exports = {
   getDeviceById,
   removeDevice,
   addPredatorData,
-  getPredatorData
+  // getPredatorData,
+  getCaptureData
 }
